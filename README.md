@@ -46,9 +46,10 @@ zoneight234
 ```
 In this example, the calibration values are `29`, `83`, `13`, `24`, `42`, `14`, and `76`. Adding these together produces `281`.
 
-What is the sum of all of the calibration values?
+What is the sum of all of the calibration values? [^1.2]
 
 ### Day 2
 
-## Footnotes
-[^1.1]: The Anwser is `54940`
+#### Footnotes
+[^1.1]: The anwser is `54940`
+[^1.2]: The anwser is `?`
