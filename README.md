@@ -50,4 +50,5 @@ What is the sum of all of the calibration values?
 
 ### Day 2
 
+## Footnotes
 [^1]: The Anwser is `54940`
