@@ -3,8 +3,8 @@
 ## Overview
 | DayNo. | Part 1 | Part 2 |
 | ------ | :----: | :----: |
-| 1      | ⭐    | ❌     |
-
+| 1      | ⭐    | ⭐     |
+|2       | ❌    | ❌     |
 
 ## --- Day 1: Trebuchet?! ---
 ### Part 1 
