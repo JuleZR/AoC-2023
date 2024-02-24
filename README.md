@@ -5,7 +5,7 @@
 | ------ | :----: | :----: |
 | 1      | ⭐    | ⭐     |
 | 2      | ⭐    | ⭐     |
-| 3      | ❌    | ❌     |
+| 3      | ⭐    | ❌     |
 
 ## Day 1: Trebuchet?!
 ### Part 1 
@@ -101,7 +101,7 @@ The **power** of a set of cubes is equal to the numbers of red, green, and blue 
 
 For each game, find the minimum set of cubes that must have been present. **What is the sum of the power of these sets?**
 
-## Day 3: Gear Ratios+
+## Day 3: Gear Ratios
 ### Part 1
 You and the Elf eventually reach a gondola lift station; he says the gondola lift will take you up to the **water source**, but this is as far as he can bring you. You go inside.
 
