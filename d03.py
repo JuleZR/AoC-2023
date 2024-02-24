@@ -12,6 +12,9 @@ NEIGHBORS = [-1, 0, 1]
 
 
 def clear() -> None:
+    """
+    Clears console
+    """
     os.system('cls')
 
 
@@ -51,8 +54,8 @@ def part_1(filename: str) -> str:
     """
     matrix: list[str] = read_input(filename)
 
-    number_lst: list = []
-    current_nb: str = ""
+    number_lst = list()
+    current_nb = str()
     has_neighbor: bool = False
 
     for y, row in enumerate(matrix):
@@ -85,7 +88,8 @@ def part_1(filename: str) -> str:
     return str(sum(number_lst))
 
 
-def part_2(filename: str) -> str:
+def part_2():
+    # TODO: Yet no clue how to do this
     pass
 
 
@@ -95,7 +99,6 @@ def main():
     input_file = "day03.txt"
     print("Day 3: Gear Ratios")
     print("Part 1: " + part_1(input_file))
-    # print("Part 2: " + get_possible_power(input_file))
 
 
 if __name__ == '__main__':
