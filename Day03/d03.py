@@ -36,6 +36,18 @@ def read_input(filename: str) -> list[str]:
 
 
 def part_1(filename: str) -> str:
+    """
+    This function `part_1` takes a filename as input, reads a matrix from the
+    file, processes the matrix to find certain numbers, and returns the sum of
+    those numbers.
+
+    Args:
+        filename (str): A string representing the filename containing the
+        matrix.
+
+    Returns:
+        str: A string representing the sum of the numbers found in the matrix.
+    """
     matrix: list[str] = read_input(filename)
 
     number_lst: list = []
@@ -77,41 +89,8 @@ def part_1(filename: str) -> str:
 
 
 def part_2(filename: str):
-    matrix: list[str] = read_input(filename)
-
-    number_lst: list = []
-    current_nb: str = ""
-    neighbor: bool = False
-
-    def reset_ongoing_variables():
-        nonlocal current_nb, neighbor
-        current_nb = ""
-        neighbor = False
-
-    def process_current_nb():
-        if current_nb and neighbor:
-            number_lst.append(int(current_nb))
-
-    for y, row in enumerate(matrix):
-        for x, cell in enumerate(row):
-            if cell.isdigit():
-                current_nb += cell
-                for dy in NEIGHBORS:
-                    for dx in NEIGHBORS:
-                        ny, nx = y + dy, x + dx
-                        if ((0 <= ny < len(matrix))
-                                and (0 <= nx < len(row))
-                                and (matrix[ny][nx] == "*")):
-                            neighbor = True
-                            
-            else:
-                process_current_nb()
-                reset_ongoing_variables()
-        process_current_nb()
-        reset_ongoing_variables()
-    process_current_nb()
-
     # ! Still no clue :D
+    pass
 
 
 def main():
