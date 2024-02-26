@@ -36,69 +36,91 @@ def read_input(filename: str) -> list[str]:
 
 
 def part_1(filename: str) -> str:
-    """
-    Calculates the sum of all part numbers in an engine schematic.
-
-    The engine schematic is read from a file. Each line in the file represents
-    a row in the schematic. A part number is defined as a number that is
-    adjacent to a symbol (any character that is not a number or a period).
-    Adjacency is considered in all eight directions (up, down, left, right,
-    and the four diagonals).
-
-    Args:
-        filename (str): The name of the file containing the engine schematic.
-
-    Returns:
-        str: The sum of all part numbers in the engine schematic, represented
-        as a string.
-    """
     matrix: list[str] = read_input(filename)
 
-    number_lst = list()
-    current_nb = str()
-    has_neighbor: bool = False
+    number_lst: list = []
+    current_nb: str = ""
+    neighbor: bool = False
+
+    def reset_ongoing_variables():
+        nonlocal current_nb, neighbor
+        current_nb = ""
+        neighbor = False
+
+    def process_current_nb():
+        if current_nb and neighbor:
+            number_lst.append(int(current_nb))
 
     for y, row in enumerate(matrix):
-        for x, _ in enumerate(row):
-            if matrix[y][x].isnumeric():
-                current_nb += matrix[y][x]
+        for x, cell in enumerate(row):
+            if cell.isdigit():
+                current_nb += cell
                 for dy in NEIGHBORS:
                     for dx in NEIGHBORS:
                         ny, nx = y + dy, x + dx
                         if ((0 <= ny < len(matrix))
                                 and (0 <= nx < len(row))
                                 and (matrix[ny][nx] in SYMBOLS)):
-                            has_neighbor = True
+                            neighbor = True
             else:
-                if current_nb != "" and has_neighbor is True:
-                    number_lst.append(int(current_nb))
-                current_nb = ""
-                has_neighbor = False
+                process_current_nb()
+                reset_ongoing_variables()
 
         # Check for a remaining number at the end of the line
-        if current_nb != "" and has_neighbor is True:
-            number_lst.append(int(current_nb))
-        current_nb = ""
-        has_neighbor = False
+        process_current_nb()
+        reset_ongoing_variables()
 
     # Check for the last number in the matrix
-    if current_nb != "" and has_neighbor is True:
-        number_lst.append(int(current_nb))
+    process_current_nb()
 
     return str(sum(number_lst))
 
 
-def part_2():
-    # TODO: Yet no clue how to do this
-    pass
+def part_2(filename: str):
+    matrix: list[str] = read_input(filename)
+
+    number_lst: list = []
+    current_nb: str = ""
+    neighbor: bool = False
+
+    def reset_ongoing_variables():
+        nonlocal current_nb, neighbor
+        current_nb = ""
+        neighbor = False
+
+    def process_current_nb():
+        if current_nb and neighbor:
+            number_lst.append(int(current_nb))
+
+    for y, row in enumerate(matrix):
+        for x, cell in enumerate(row):
+            if cell.isdigit():
+                current_nb += cell
+                for dy in NEIGHBORS:
+                    for dx in NEIGHBORS:
+                        ny, nx = y + dy, x + dx
+                        if ((0 <= ny < len(matrix))
+                                and (0 <= nx < len(row))
+                                and (matrix[ny][nx] == "*")):
+                            neighbor = True
+                            
+            else:
+                process_current_nb()
+                reset_ongoing_variables()
+        process_current_nb()
+        reset_ongoing_variables()
+    process_current_nb()
+
+    # ! Still no clue :D
 
 
 def main():
     clear()
-    # example = "_d03-1ex.txt"
+    example = "_d03-1ex.txt"
     input_file = "day03.txt"
     print("Day 3: Gear Ratios")
     print("Part 1: " + part_1(input_file))
+    part_2(example)
 
 
 if __name__ == '__main__':
